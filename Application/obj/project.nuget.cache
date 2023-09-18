@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "bk2ru0/aqc234/v5q1bqXS7DaT3mscS/QzD1mFkNiYiLaWRQ+ta8sVx8SyumY4Erk62HX0ets7LsWUPE6/O2mQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\linsh\\Desktop\\Codeology\\University\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\linsh\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\linsh\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
+    "C:\\Users\\linsh\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\linsh\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\linsh\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

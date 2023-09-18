@@ -1,0 +1,12 @@
+C:\Users\linsh\Desktop\Codeology\University\Presentation\bin\Debug\net6.0\Presentation.deps.json
+C:\Users\linsh\Desktop\Codeology\University\Presentation\bin\Debug\net6.0\Presentation.dll
+C:\Users\linsh\Desktop\Codeology\University\Presentation\bin\Debug\net6.0\Presentation.pdb
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfo.cs
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\Presentation.dll
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\refint\Presentation.dll
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\Presentation.pdb
+C:\Users\linsh\Desktop\Codeology\University\Presentation\obj\Debug\net6.0\ref\Presentation.dll
