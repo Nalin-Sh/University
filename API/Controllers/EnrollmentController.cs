@@ -2,6 +2,7 @@
 using Application.RequestModels;
 using Domain.Models;
 using Infrastructures.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +26,7 @@ namespace API.Controllers
             var enrollment = _enrollmentService.GetAll().OrderBy(c => c.EnrollmentId);
             return Ok(enrollment);
         }
-        [HttpPut]
+/*        [HttpPut]
         public IActionResult Update(EnrollmentRequest request)
         {
             bool updated = _enrollmentService.UpdateEnrollment(request);
@@ -35,7 +36,7 @@ namespace API.Controllers
             }
             return BadRequest("Update Not Successful");
 
-        }
+        }*/
         [HttpDelete]
         public IActionResult Delete(EnrollmentRequest request)
         {

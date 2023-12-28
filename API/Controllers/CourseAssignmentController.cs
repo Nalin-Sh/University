@@ -48,7 +48,7 @@ namespace API.Controllers
             var instructorWithCourses = _courseAssignmentService.GetAll().OrderBy(c => c.InstructorId);
             return Ok(instructorWithCourses);
         }
-        [HttpPut]
+/*        [HttpPut]
         public IActionResult Update(CourseAssignmentRequest request)
         {
             bool updated = _courseAssignmentService.UpdateCourseAssignment(request);
@@ -58,7 +58,7 @@ namespace API.Controllers
             }
             return BadRequest("Update Not Successful");
 
-        }
+        }*/
         [HttpDelete]
         public IActionResult Delete(CourseAssignmentRequest request)
         {

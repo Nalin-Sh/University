@@ -42,10 +42,19 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll(string? name)
         {
-            var courses = _courseService.GetCourses().OrderBy(c => c.CourseId);
-            return Ok(courses);
+            if (name != null)
+            {
+                var courses = _courseService.GetCourses().Where(c => c.CourseName.ToLower().Contains(name.ToLower()));
+                return Ok(courses);
+            }
+            else
+            { var courses = _courseService.GetCourses().OrderBy(c => c.CourseId);
+                return Ok(courses);
+            }
+
+            
         }
         [HttpDelete]
         public IActionResult Delete(int id)
