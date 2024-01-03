@@ -8,7 +8,7 @@ namespace Application.Contracts
 {
     public interface IQueriesServices
     {
-        bool CountAllEntities();
+        int CountAllEntities<T>() where T : class;
         IEnumerable<object> GetFacultiesWithSupervisor();
 
         IEnumerable<object> GetCoursesWithFaculty();
@@ -18,5 +18,21 @@ namespace Application.Contracts
         IEnumerable<object> AllCoursesWithNoOfInstructors();
 
         IEnumerable<object> AllClubsWithNoOfStudents();
+
+        IEnumerable<object> AllFacultiesWithOrWithoutSupervisor();
+
+        IEnumerable<object> InstructorWithParticularCourse(string CourseName);
+
+        IEnumerable<object> StudentEnrolledInParticularCourse(string course);
+
+        IEnumerable<object> CourseWithMarks();
+
+        IEnumerable<object> StudentsWithHighestMarks();
+
+        IEnumerable<object> StrudentsWithTheirMarks();
+
+        IEnumerable<object> GetStudentsWithClubsAndCoursesWithFaculty();
+
+        IEnumerable<object> GetStudentsWithHighestAndLowestMarks();
     }
 }
