@@ -148,12 +148,77 @@ namespace Infrastructures.Services
 
         public IEnumerable<object> GetStudentsWithClubsAndCoursesWithFaculty()
         {
-            throw new NotImplementedException();
+            var query = _studenRepository.GetAll()
+                        .Join(_enrollmentRepository.GetAll(),
+                        student => student.StudentId,
+                        enrolled => enrolled.StudentId,
+                        (student, enrolled) => new
+                        {
+                            student = student.StudentId,
+                            enrolled = enrolled
+
+                        })
+                        .Join(_courseRepository.GetAll(),
+                        enrolledCourse => enrolledCourse.enrolled.CourseId,
+                        course => course.Id,
+                        (enrolledCourse, course) => new
+                        {
+                            enrolledCourse = enrolledCourse,
+                            course = course.Id
+                        })
+                        .Join(_facultyRepository.GetAll(),
+                        courseFaculty => courseFaculty.course,
+                        faculty => faculty.Id,
+                        (courseFaculty, faculty) => new
+                        {
+                            courseFaculty = courseFaculty,
+                            faculty = faculty.Id
+
+                        })
+                        .Join(_clubRepository.GetAll(),
+                        StudentClub => StudentClub.courseFaculty.enrolledCourse.enrolled.Student.ClubId,
+                        club => club.Id,
+                        (StudentClub, club) => new
+                        {
+                            student = StudentClub.courseFaculty.enrolledCourse.enrolled.Student.StudentName,
+                            enrollment = StudentClub.courseFaculty.enrolledCourse.enrolled,
+                            course = StudentClub.courseFaculty.course,
+                            faculty = StudentClub.courseFaculty.enrolledCourse.enrolled.Course.Faculty,
+                            StudentClub = StudentClub,
+                            club = club.Id
+                        }
+                        );
+                        
+                        
+
+            return query.ToList();
+                        
         }
 
         public IEnumerable<object> GetStudentsWithHighestAndLowestMarks()
         {
-            throw new NotImplementedException();
+            var query = _studenRepository.GetAll()
+                        .GroupJoin(_enrollmentRepository.GetAll(),
+                        student => student.StudentId,
+                        enrollment => enrollment.StudentId,
+                        (student, enrollment) => new
+                        {
+                            student = student.StudentName,
+                            enrollment = enrollment
+                        })
+                        .GroupJoin(_courseRepository.GetAll(),
+                        enrolledCourse => enrolledCourse.enrollment.FirstOrDefault()?.CourseId,
+                        course => course.Id,
+                        (course, enrolledCourse) => new
+                        {
+                            course = course,
+                            enrolledCourse = enrolledCourse
+                        }).GroupBy(result => result.course.student);
+                        
+                        
+                        
+                        
+                        return query.ToList();
         }
 
         public IEnumerable<object> InstructorWithParticularCourse(string CourseName)
@@ -226,12 +291,7 @@ namespace Infrastructures.Services
                             StudentName = student.StudentName,
                         });
 
-            return query.ToList();
-                        
-                       
-                        
-                        
-                        
+            return query.ToList();         
         }
 
         public IEnumerable<object> StudentsWithHighestMarks()
@@ -255,11 +315,7 @@ namespace Infrastructures.Services
                             HighestMarks = HighestMarks.HighestMarks
                         }).ToList();
 
-            return query.ToList();
-                        
-                        
-                        
-                        
+            return query.ToList();               
         }
     }
 }

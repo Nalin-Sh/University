@@ -249,10 +249,6 @@ namespace Infrastructures.Services
                         from enrolled in studentsEnrolled
                         join courses in _courseRepository.GetAll() on enrolled.CourseId equals courses.Id into coursesEnrolled
                         from courseFaculty in coursesEnrolled
-                        join faculty in _facultyRepository.GetAll() on courseFaculty.FacultyId equals faculty.Id into facultyEnrolled
-                        from faculty in facultyEnrolled
-                        join clubs in _clubRepository.GetAll() on students.ClubId equals clubs.Id into studentClubs
-                        from club in studentClubs
                         let highestSubject = _enrollmentRepository.GetAll()
                                                     .Where(e => e.StudentId == students.StudentId)
                                                     .OrderByDescending(e => e.Marks)
@@ -265,8 +261,6 @@ namespace Infrastructures.Services
                         {
                             StudentName = students.StudentName,
                             Course = courseFaculty.Title,
-                            Faculty = faculty.Name,
-                            ClubName = club.Entitle,
                             HighestSubject =  highestSubject.Course.Title,
                             HighestMarks =  highestSubject.Marks,
                             LowestSubject = lowestSubject.Course.Title,
